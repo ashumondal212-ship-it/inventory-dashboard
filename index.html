@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>Inventory Control | Live Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="brandmark">IC</div><div><div class="brandname">Inventory Control</div><div class="subtitle">LIVE OPERATIONS DASHBOARD</div></div></div>
+  <div class="topright"><span class="live"><i></i> LIVE</span><button id="refreshBtn" class="refresh">↻ <span>Refresh</span></button></div>
+</header>
+<main class="wrap">
+  <section class="welcome"><div><p class="eyebrow">INVENTORY OVERVIEW</p><h1>Stock at a glance</h1><p class="muted">Live view of published spreadsheet data.</p></div><div class="updated"><span class="muted">LAST UPDATED</span><strong id="lastUpdated">Connecting…</strong><span id="status" class="status">Connecting to sheet</span></div></section>
+  <section id="error" class="error hidden"></section>
+  <section class="metrics">
+    <article class="metric"><div class="metric-label">PRODUCTS / ROWS</div><div class="metric-value" id="productsCount">—</div><div class="metric-foot">Rows with data</div></article>
+    <article class="metric"><div class="metric-label">TOTAL STOCK</div><div class="metric-value" id="totalStock">—</div><div class="metric-foot">Detected stock quantity</div></article>
+    <article class="metric"><div class="metric-label">TOTAL DISPATCH</div><div class="metric-value" id="totalDispatch">—</div><div class="metric-foot">Detected dispatch quantity</div></article>
+    <article class="metric"><div class="metric-label">TOTAL BALANCE</div><div class="metric-value" id="totalBalance">—</div><div class="metric-foot">Detected remaining quantity</div></article>
+  </section>
+  <section class="panel">
+    <div class="panel-head"><div><h2>Product inventory</h2><p class="muted">Search and filter the published rows</p></div><span id="rowCount" class="count">0 rows</span></div>
+    <div class="filters"><label class="searchbox">⌕ <input id="search" type="search" placeholder="Search product, SKU, plant…" autocomplete="off"></label><select id="columnFilter" aria-label="Filter column"><option value="">All records</option></select></div>
+    <div class="table-wrap"><table><thead id="thead"></thead><tbody id="tbody"><tr><td class="empty" colspan="8">Loading spreadsheet data…</td></tr></tbody></table></div>
+    <div class="mobile-hint">On mobile, swipe the table horizontally to view more columns.</div>
+  </section>
+  <footer>Independent dashboard · Data source: published Google Sheet · Auto-refresh every 1 minute</footer>
+</main>
+<script src="app.js"></script>
+</body></html>
